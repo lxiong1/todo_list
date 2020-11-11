@@ -1,12 +1,16 @@
 # TODO List
-Web application that stores a list of things to do
+Web service that stores a list of things to do
 
 ## Installation Pre-requisites
 - Golang
-- Glide
 - Docker
 
 ## Running Locally
+### Install Build Dependencies
+```
+go mod download
+```
+
 ### Create MySQL Database
 Create MySQL instance:
 ```
@@ -31,4 +35,29 @@ This should result in similar output with `todolist` present in database list:
 | sys                |
 | todolist           |
 +--------------------+
+```
+
+### Stand Up Service
+Build service:
+```
+go build cmd/main.go
+```
+Run service:
+```
+./main
+```
+
+### Create requests
+Available endpoints:
+```
+GET /todos
+GET /todos/complete
+GET /todos/incomplete
+POST /todo
+POST /todo/{id}
+DELETE /todo/{id}
+```
+Example of creating todo item:
+```
+curl -X POST localhost:8000/todo -d "description=Wash dishes"
 ```

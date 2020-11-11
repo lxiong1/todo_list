@@ -1,1 +1,4 @@
-glide.lock
+vendor/*
+
+go.sum
+main
